@@ -35,24 +35,3 @@ public class movimientoDineroServicios {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*public ArrayList<MovimientoDinero> getByEmpresa(long id){
-        return movimientoDineroRepositorio.findByEmpresa(id);
-    }
-*/
-
-
-

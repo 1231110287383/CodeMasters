@@ -99,5 +99,4 @@ import java.util.Date;
     public void setFechaActualizacion(Date fechaActualizacion) {
         this.fechaActualizacion = fechaActualizacion;
     }
-}
 
