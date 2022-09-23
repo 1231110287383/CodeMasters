@@ -1,39 +1,41 @@
 package com.CodeMasters.proyecto.entidades;
 
 import javax.persistence.*;
+import java.nio.MappedByteBuffer;
 
 @Entity
-@Table(name="Empleado")
+@Table(name="empleado")
 
 public class Empleado {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private String nombre;
     private String correo;
     @ManyToOne
     @JoinColumn(name = "empresa_id")
     private Empresa empresa;//creamos un atributo de otra clase
-    private String rol;
+    private Rol rol;
 
     public Empleado() {
     }
 
-    public Empleado(String nombre, String correo, Empresa empresa, String rol) {
+    public Empleado(String nombre, String correo, Empresa empresa, Rol rol) {
         this.nombre = nombre;
         this.correo = correo;
         this.empresa = empresa;
         this.rol = rol;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
     }
+
 
     public String getNombre() {
         return nombre;
@@ -51,11 +53,11 @@ public class Empleado {
         this.correo = correo;
     }
 
-    public String getRol() {
+    public Rol getRol() {
         return rol;
     }
 
-    public void setRol(String rol) {
+    public void setRol(Rol rol) {
         this.rol = rol;
     }
 

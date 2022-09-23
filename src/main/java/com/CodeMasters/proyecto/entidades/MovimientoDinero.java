@@ -65,4 +65,4 @@ import javax.persistence.*;
             this.usuario = usuario;
         }
     }
-}
+
