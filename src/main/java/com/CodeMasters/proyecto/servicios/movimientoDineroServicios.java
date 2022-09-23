@@ -1,13 +1,11 @@
 package com.CodeMasters.proyecto.servicios;
 
 import com.CodeMasters.proyecto.entidades.MovimientoDinero;
-import com.CodeMasters.proyecto.repositorio.movimientoDineroRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class movimientoDineroServicios {
@@ -15,24 +13,46 @@ public class movimientoDineroServicios {
     private com.CodeMasters.proyecto.repositorio.movimientoDineroRepositorio movimientoDineroRepositorio;
 
 
-    public List<MovimientoDinero> getAllMovimientoDinero(){
-        List<MovimientoDinero> movimientoDineroList = new ArrayList<>();
-        movimientoDineroRepositorio.findAll().forEach(movimientoDinero -> movimientoDineroList.add(movimientoDinero));
-        return movimientoDineroList;
+    public List<MovimientoDinero> getAllMovimientoDinero() {
+        return movimientoDineroRepositorio.findAll();
     }
 
-    public Optional<MovimientoDinero> getMovimientoDineroById(long id){
-        return movimientoDineroRepositorio.findById(id);
+    public MovimientoDinero getMovimentoDineroById(long id) {
+        return movimientoDineroRepositorio.findById(id).get();
     }
 
-    public MovimientoDinero saveOrUpdaeMovimientoDineroRepositorio(MovimientoDinero movimientoDinero) {
-        return movimientoDineroRepositorio.save(movimientoDinero);
+    public MovimientoDinero saveOrUpdateMovimientoDinero(MovimientoDinero movimientoDinero) {
+        MovimientoDinero movimiento = movimientoDineroRepositorio.save(movimientoDinero);
+        return movimiento;
     }
 
     public boolean deleteMovimientoDinero(long id) {
         movimientoDineroRepositorio.deleteById(id);
-        if(this.movimientoDineroRepositorio.findById(id).isPresent()){return false;}
+        if (this.movimientoDineroRepositorio.findById(id).isPresent()) {
+            return false;
+        }
         return true;
     }
+
 }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*public ArrayList<MovimientoDinero> getByEmpresa(long id){
+        return movimientoDineroRepositorio.findByEmpresa(id);
+    }
+*/
+
+
+
