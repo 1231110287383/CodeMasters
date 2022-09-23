@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Empresa {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private long id;
     private String nombre;
     private String direccion;
     private String telefono;
@@ -23,11 +23,11 @@ public class Empresa {
         this.NIT = NIT;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
