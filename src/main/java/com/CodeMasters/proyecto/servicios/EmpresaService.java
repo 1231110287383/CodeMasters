@@ -16,32 +16,29 @@ public class EmpresaService {
     //Metodo que retornará la lista de empresas usando metodos heredados del jpaRepository
     public List<Empresa> getAllEmpresas(){
         List<Empresa> empresaList = new ArrayList<>();
-        empresaRepository.findAll().forEach(empresa -> empresaList.add(empresa));  //Recorremos el iterable que regresa el metodo findAll del Jpa y lo guardamos en la lista creada
+        empresaRepository.findAll();  //Recorremos el iterable que regresa el metodo findAll del Jpa y lo guardamos en la lista creada
         return empresaList;
     }
 
     //Metodo que me trae un objeto de tipo Empresa cuando cuento con el id de la misma
-    public Empresa getEmpresaById(Integer id){
+    public Empresa getEmpresaById(long id){
         return empresaRepository.findById(id).get();
     }
 
     //Metodo para guardar o actualizar objetos de tipo Empresa
-    public boolean saveOrUpdateEmpresa(Empresa empresa){
-        Empresa emp=empresaRepository.save(empresa);
-        if (empresaRepository.findById(emp.getId())!=null){
-            return true;
-        }
-        return false;
+    public Empresa saveOrUpdateEmpresa(Empresa empresa){
+        Empresa emp = empresaRepository.save(empresa);
+        return emp;
     }
 
     //Metodo para eliminar empresas registradas teniendo el id
-    public boolean deleteEmpresa(Integer id){
+    public boolean deleteEmpresa(long id){
         empresaRepository.deleteById(id);  //Eliminar
 
-        if (empresaRepository.findById(id)!=null){  //Verificacion del servicio eliminacion
-            return true;
+        if (this.empresaRepository.findById(id).isPresent()){  //Verificacion del servicio eliminacion
+            return false;
         }
-        return false;
+        return true;
     }
 
 
