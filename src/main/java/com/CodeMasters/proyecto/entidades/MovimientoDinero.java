@@ -21,10 +21,10 @@ import java.util.Date;
         @Column(name = "concepto_movimiento")
         private String conceptoMovimiento;
 
-        //@ManyToOne(fetch = FetchType.LAZY, targetEntity = Empresa-class)
+        @ManyToOne(fetch = FetchType.LAZY, targetEntity = Empresa-class)
         private Empresa empresaMovimiento;
 
-        //@ManyToOne(fetch = FetchType.LAZY, targetEntity = Empleado.class)
+        @ManyToOne(fetch = FetchType.LAZY, targetEntity = Empleado.class)
         private Empleado usuarioMovimiento;
 
         private Date fechaCreacion;
@@ -36,7 +36,6 @@ import java.util.Date;
         }
 
     public MovimientoDinero(Long idMovimiento, double montoDinero, String conceptoMovimiento, Empresa empresaMovimiento, Empleado usuarioMovimiento, Date fechaCreacion, Date fechaActualizacion) {
-        this.idMovimiento = idMovimiento;
         this.montoDinero = montoDinero;
         this.conceptoMovimiento = conceptoMovimiento;
         this.empresaMovimiento = empresaMovimiento;

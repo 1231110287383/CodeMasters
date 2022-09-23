@@ -14,9 +14,7 @@ public class movimientoDineroServicios {
 
 
     public List<MovimientoDinero> getAllMovimientoDinero() {
-        List<MovimientoDinero> movimientoDineroList = new ArrayList<>();
-        movimientoDineroRepositorio.findAll().forEach(movimientoDinero -> movimientoDineroList.add(movimientoDinero));
-        return movimientoDineroList;
+        return movimientoDineroRepositorio.findAll();
     }
 
     public MovimientoDinero getMovimentoDineroById(long id) {
@@ -34,11 +32,6 @@ public class movimientoDineroServicios {
             return false;
         }
         return true;
-    }
-
-
-    public ArrayList<MovimientoDinero> getByMovimeintoEmpresa(long id) {
-        return this.movimientoDineroRepositorio.findByMovimientoEmpresa(id);
     }
 
 }
