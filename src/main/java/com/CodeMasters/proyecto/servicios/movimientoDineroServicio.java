@@ -4,28 +4,27 @@ import com.CodeMasters.proyecto.entidades.MovimientoDinero;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 @Service
-public class movimientoDineroServicios {
+public class movimientoDineroServicio {
     @Autowired
     private com.CodeMasters.proyecto.repositorio.movimientoDineroRepositorio movimientoDineroRepositorio;
 
 
-    public List<MovimientoDinero> getAllMovimientoDinero() {
+    public List<MovimientoDinero> listaMovimientoDinero() {
         return movimientoDineroRepositorio.findAll();
     }
 
-    public MovimientoDinero getMovimentoDineroById(long id) {
+    public MovimientoDinero MovimentoDineroPorId(long id) {
         return movimientoDineroRepositorio.findById(id).get();
     }
 
-    public MovimientoDinero saveOrUpdateMovimientoDinero(MovimientoDinero movimientoDinero) {
+    public MovimientoDinero guardarMovimientoDinero(MovimientoDinero movimientoDinero) {
         MovimientoDinero movimiento = movimientoDineroRepositorio.save(movimientoDinero);
         return movimiento;
     }
 
-    public boolean deleteMovimientoDinero(long id) {
+    public boolean eliminarMovimientoDinero(long id) {
         movimientoDineroRepositorio.deleteById(id);
         if (this.movimientoDineroRepositorio.findById(id).isPresent()) {
             return false;
