@@ -10,8 +10,6 @@ import java.util.ArrayList;
 @Repository
 public interface movimientoDineroRepositorio extends JpaRepository<MovimientoDinero, Long> {
 
-    @Query(value = "select * from movimiento_dinero where empresa_id= ?1", nativeQuery = true)
-    public abstract ArrayList<MovimientoDinero> findByMovimientoEmpresa(long Id);
 
 
 

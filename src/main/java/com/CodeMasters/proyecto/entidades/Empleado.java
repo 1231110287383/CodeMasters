@@ -5,7 +5,6 @@ import java.nio.MappedByteBuffer;
 
 @Entity
 @Table(name="empleado")
-
 public class Empleado {
 
     @Id

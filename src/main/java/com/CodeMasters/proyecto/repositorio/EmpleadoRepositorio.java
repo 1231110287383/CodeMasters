@@ -8,6 +8,5 @@ import java.util.ArrayList;
 
 @Repository
 public interface EmpleadoRepositorio extends JpaRepository<Empleado, Long> {
-
     //ArrayList<Empleado> findByEmpresaId(Long id);
 }

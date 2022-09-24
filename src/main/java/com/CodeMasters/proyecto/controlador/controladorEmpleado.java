@@ -5,7 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import com.CodeMasters.proyecto.servicios.serviciosEmpleado;
 
 import java.util.List;
-
+@RestController
+@RequestMapping("/empleado")
 public class controladorEmpleado {
 
     @Autowired

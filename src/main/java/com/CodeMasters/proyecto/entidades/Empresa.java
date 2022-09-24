@@ -3,7 +3,7 @@ package com.CodeMasters.proyecto.entidades;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Empresa")
+@Table(name="empresa")
 public class Empresa {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

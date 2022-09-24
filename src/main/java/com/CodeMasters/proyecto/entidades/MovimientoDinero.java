@@ -1,7 +1,5 @@
 package com.CodeMasters.proyecto.entidades;
 
-import org.hibernate.annotations.ValueGenerationType;
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -10,32 +8,32 @@ import java.util.Date;
     @Table(name = "movimiento_dinero")
     public class MovimientoDinero {
 
-        @Id
-        @Column(name = "id_movimiento",unique = true, nullable = false)
-        @GeneratedValue(strategy = GenerationType.AUTO)
-        private Long idMovimiento;
+    @Id
+    @Column(name = "id_movimiento", unique = true, nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-        @Column(name = "monto_dinero")
-        private double montoDinero;
+    @Column(name = "monto_dinero")
+    private double montoDinero;
 
-        @Column(name = "concepto_movimiento")
-        private String conceptoMovimiento;
+    @Column(name = "concepto_movimiento")
+    private String conceptoMovimiento;
 
-        @ManyToOne(fetch = FetchType.LAZY, targetEntity = Empresa-class)
-        private Empresa empresaMovimiento;
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Empresa.class)
+    private Empresa empresaMovimiento;
 
-        @ManyToOne(fetch = FetchType.LAZY, targetEntity = Empleado.class)
-        private Empleado usuarioMovimiento;
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Empleado.class)
+    private Empleado usuarioMovimiento;
 
-        private Date fechaCreacion;
+    private Date fechaCreacion;
 
-        private Date fechaActualizacion;
+    private Date fechaActualizacion;
 
 
-        public MovimientoDinero() {
-        }
+    public MovimientoDinero() {
+    }
 
-    public MovimientoDinero(Long idMovimiento, double montoDinero, String conceptoMovimiento, Empresa empresaMovimiento, Empleado usuarioMovimiento, Date fechaCreacion, Date fechaActualizacion) {
+    public MovimientoDinero(Long id, double montoDinero, String conceptoMovimiento, Empresa empresaMovimiento, Empleado usuarioMovimiento, Date fechaCreacion, Date fechaActualizacion) {
         this.montoDinero = montoDinero;
         this.conceptoMovimiento = conceptoMovimiento;
         this.empresaMovimiento = empresaMovimiento;
@@ -44,12 +42,12 @@ import java.util.Date;
         this.fechaActualizacion = fechaActualizacion;
     }
 
-    public Long getIdMovimiento() {
-        return idMovimiento;
+    public Long getid() {
+        return id;
     }
 
-    public void setIdMovimiento(Long idMovimiento) {
-        this.idMovimiento = idMovimiento;
+    public void setid(Long id) {
+        this.id = id;
     }
 
     public double getMontoDinero() {
@@ -100,3 +98,4 @@ import java.util.Date;
         this.fechaActualizacion = fechaActualizacion;
     }
 
+}

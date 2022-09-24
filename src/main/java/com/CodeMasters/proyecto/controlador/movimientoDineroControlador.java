@@ -29,6 +29,7 @@ public class movimientoDineroControlador {
         return movimientoDineroServicio.saveOrUpdateMovimientoDinero(movimientoDinero);
     }
 
+    @DeleteMapping
     public boolean deleteMovimentoDinero(@RequestBody long id){
         return movimientoDineroServicio.deleteMovimientoDinero(id);
     }
