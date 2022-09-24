@@ -1,13 +1,13 @@
 package com.CodeMasters.proyecto.controlador;
 
 import com.CodeMasters.proyecto.entidades.Empresa;
-import com.CodeMasters.proyecto.servicios.EmpresaService
+import com.CodeMasters.proyecto.servicios.EmpresaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @RestController
-@RequestMapping
+@RequestMapping("/empresa")
 public class EmpresaControlador {
     @Autowired
     EmpresaService EmpresaService;
