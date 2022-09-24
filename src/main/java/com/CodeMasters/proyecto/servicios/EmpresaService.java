@@ -5,7 +5,7 @@ import com.CodeMasters.proyecto.repositorio.EmpresaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 @Service
@@ -15,10 +15,8 @@ public class EmpresaService {
     EmpresaRepository empresaRepository; //Creamos un objeto tipo EmpresaRepository para poder usar los metodos que dicha clase hereda
 
     //Metodo que retornará la lista de empresas usando metodos heredados del jpaRepository
-    public List<Empresa> getAllEmpresas(){
-        List<Empresa> empresaList = new ArrayList<>();
-        empresaRepository.findAll();  //Recorremos el iterable que regresa el metodo findAll del Jpa y lo guardamos en la lista creada
-        return empresaList;
+    public List<Empresa> findAllEmpresa(){
+        return empresaRepository.findAll();
     }
 
     //Metodo que me trae un objeto de tipo Empresa cuando cuento con el id de la misma

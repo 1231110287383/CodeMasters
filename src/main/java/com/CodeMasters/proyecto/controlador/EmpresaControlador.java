@@ -12,18 +12,23 @@ public class EmpresaControlador {
     @Autowired
     EmpresaService EmpresaService;
 
-    @GetMapping
+    @GetMapping ("/ListaEmpresa")
     public List<Empresa> verEmpresa() {
-        return EmpresaService.getAllEmpresas();
+        return EmpresaService.findAllEmpresa();
     }
 
-    @PostMapping
+    @PostMapping ("/GuardarEmpresa")
     public Empresa guardarEmpresa(@RequestBody Empresa empresa){
         return EmpresaService.saveOrUpdateEmpresa(empresa);
     }
 
-    @GetMapping
+    @GetMapping ("/BuscarEmpresa/{id}")
     public Empresa EmpresaPorId(@PathVariable("id") long id){
         return EmpresaService.getEmpresaById(id);
+    }
+
+    @DeleteMapping ("/EliminarEmpresa")
+    public void deleteEmpresa(@RequestBody long id) {
+        EmpresaService.deleteEmpresa(id);
     }
 }
